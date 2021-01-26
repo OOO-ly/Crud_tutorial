@@ -9,17 +9,19 @@
   <h1><a href="index.php">Dynimic Web</a></h1>
   <ol>
     <?php 
-        $lang_list = scandir('data');      
-        $i = 0;
-        while($i<count($lang_list)){
-            if($lang_list[$i] != '.'){
-                if($lang_list[$i] != '..'){
-                    ?>
+        // $lang_list = scandir('data');      
+        // $i = 0;
+        // while($i<count($lang_list)){
+        //     if($lang_list[$i] != '.'){
+        //         if($lang_list[$i] != '..'){
+    $dir_list = scandir('data');
+    var_dump($dir_list);
+    ?>
                     <li><a href="index.php?id=<?=$lang_list[$i]?>"><?=$lang_list[$i]?></a></li>
                     <?php
-                }
-           }$i++;
-        }
+        //         }
+        //    }//$i++;
+        // }
     ?>
   </ol>
 <h2>
