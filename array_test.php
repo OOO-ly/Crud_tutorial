@@ -19,9 +19,11 @@
     echo "<br>";
     array_push($coworkers,12);
     var_dump($coworkers)."<br>";
-    echo array_rand($coworkers,12);
+    $str = "asd";
+    array_rand($coworkers,1);
 
     // 배열 함수 확인 필요
     ?>
+    <?= array_rand($coworkers,1); ?>
 </body>
 </html>
