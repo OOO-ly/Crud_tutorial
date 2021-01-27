@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    아 배고프다
+    <?php
+    $coworkers = array('AB','CD','EF','GH');
+    echo $coworkers[1]."<br>";
+    var_dump(count($coworkers));
+    echo "<br>";
+    var_dump($coworkers);
+    echo "<br>";
+    array_push($coworkers,12);
+    echo "<br>";
+    var_dump($coworkers)."<br>";
+    echo "<br>";
+    array_push($coworkers,12);
+    var_dump($coworkers)."<br>";
+    echo array_rand($coworkers,12);
+
+    // 배열 함수 확인 필요
+    ?>
 </body>
 </html>
