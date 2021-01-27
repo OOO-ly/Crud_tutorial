@@ -6,22 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+<h1>hello world</h1>
   <h1><a href="index.php">Dynimic Web</a></h1>
   <ol>
-    <?php 
-        // $lang_list = scandir('data');      
-        // $i = 0;
-        // while($i<count($lang_list)){
-        //     if($lang_list[$i] != '.'){
-        //         if($lang_list[$i] != '..'){
-    $dir_list = scandir('data');
-    var_dump($dir_list);
-    ?>
-                    <li><a href="index.php?id=<?=$lang_list[$i]?>"><?=$lang_list[$i]?></a></li>
-                    <?php
-        //         }
-        //    }//$i++;
-        // }
+    <?php
+    //date directory에 있는 파일의 목록을 가져오세요 PHP
+    //파일의 목록으로 하나 하나를 li와 a 태그를 이용해서 글목록을 만드세요 
+    //expr 은 값이 오는 것 최종적으로 값이 되는 것 1+1
+    //statement 는 어떤 구조를 가진다
+    
+    
     ?>
   </ol>
 <h2>
