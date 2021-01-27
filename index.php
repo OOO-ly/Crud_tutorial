@@ -64,13 +64,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    title> <?= print_title() ?> </title>
+    <title> <?php print_title() ?> </title>
 </head>
 
 <body>
     <!-- 제목 -->
     <h1><a href="index.php">Dynimic Web</a></h1>
-
+    <hr>
     <!-- scandir  -->
     <ol> <?= dirscan_like_othree_use_for('./data') ?>
     </ol>
