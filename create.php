@@ -1,6 +1,6 @@
 <!-- func def -->
 <?php
-//print_title
+    //print_title
     function print_title()
     {
         if (isset($_GET['id'])) { //id가 있으면
@@ -10,12 +10,12 @@
         }
     }
     /*  dirscan 함수 기능 명세 
-                date directory에 있는 파일의 목록을 가져오세요 PHP
-                파일의 목록으로 하나 하나를 li와 a 태그를 이용해서 글목록을 만드세요  
-                
-                expr 은 값이 오는 것 최종적으로 값이 되는 것 1+1
-                statement 는 어떤 구조를 가진다 
-                */
+            date directory에 있는 파일의 목록을 가져오세요 PHP
+            파일의 목록으로 하나 하나를 li와 a 태그를 이용해서 글목록을 만드세요  
+            
+            expr 은 값이 오는 것 최종적으로 값이 되는 것 1+1
+            statement 는 어떤 구조를 가진다 
+            */
     //dirscan_like_egoing(경로명)
     function dirscan_like_egoing($dir)
     {
@@ -57,16 +57,6 @@
             }
         }
     }
-    function description_print(){
-        if (isset($_GET['id'])) { //id가 있으면
-            echo file_get_contents("./data/" . $_GET['id']); // data경로 안에  id와 같은 이름 파일 로드(확장자 필요하면 concat 해야함)
-        }
-    }
-    function update_button(){
-        if (isset($_GET['id'])) { 
-          echo "<a href=\"update.php?id=".$_GET['id']."\">update</a>";
-         }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,22 +68,26 @@
 </head>
 
 <body>
-    <!-- Title -->
+    <!-- 제목 -->
     <h1><a href="index.php">Dynimic Web</a></h1>
-
+    
     <!-- scandir  -->
-    <ol> <?= dirscan_like_othree_use_foreach('./data') ?>
+    <ol> <?= dirscan_like_othree_use_for('./data') ?>
     </ol>
+
     <a href="create.php">create</a>
+    <form action="create_process.php" method="POST">
+        <p>
+            <input type="text" name="title" placeholder="Title">
+        </p>
+        <p>
+            <textarea name="description" placeholder="Description" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
 
-    <!-- Update -->
-    <?php update_button();?>
-
-    <!-- Sub Title -->
-    <h2><?= print_title(); ?></h2>
-
-    <!-- 아이디에 맞춰 스크립트 파일 콘텐츠 로드 및 출력 -->
-    <p><?php description_print(); ?></p>
 </body>
 
 </html>

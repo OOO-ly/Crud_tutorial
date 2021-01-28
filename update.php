@@ -53,14 +53,19 @@
         $data_list = scandir($dir);
         foreach ($data_list as $key => $value) {
             if (!in_array($value, array('.', '..'))) {
-                echo "<li><a href=\"index.php?id=$value\">$value</a></li>\n";
+                echo "<li><a href=\"index.php?id=$value>$value</a></li>\n";
             }
         }
     }
     function description_print(){
         if (isset($_GET['id'])) { //id가 있으면
-            echo file_get_contents("./data/" . $_GET['id']); // data경로 안에  id와 같은 이름 파일 로드(확장자 필요하면 concat 해야함)
+            echo file_get_contents("./data/".$_GET['id']); // data경로 안에  id와 같은 이름 파일 로드(확장자 필요하면 concat 해야함)
         }
+        // else
+        // {
+        //     echo "";
+        // }
+        
     }
     function update_button(){
         if (isset($_GET['id'])) { 
@@ -78,22 +83,38 @@
 </head>
 
 <body>
-    <!-- Title -->
+    <!-- 제목 -->
     <h1><a href="index.php">Dynimic Web</a></h1>
 
     <!-- scandir  -->
-    <ol> <?= dirscan_like_othree_use_foreach('./data') ?>
+    <ol> <?= dirscan_like_othree_use_for('./data') ?>
     </ol>
+
+    <!-- Create -->
     <a href="create.php">create</a>
 
     <!-- Update -->
-    <?php update_button();?>
-
-    <!-- Sub Title -->
+    <?php update_button($_GET['id']) ?>
+    
+    <!-- 부제목 -->
     <h2><?= print_title(); ?></h2>
 
     <!-- 아이디에 맞춰 스크립트 파일 콘텐츠 로드 및 출력 -->
-    <p><?php description_print(); ?></p>
+    <p><?php description_print() ?></p>   
+
+
+    <form action="update_process.php" method="POST">
+        <input type="hidden" name="old_title" value="<?=$_GET['id']?>">
+        <p>
+            <input type="text" name="title" placeholder="Title" value="<?php print_title();?>">
+        </p>
+        <p>
+            <textarea name="description"><?php description_print();?></textarea>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
 </body>
 
 </html>
