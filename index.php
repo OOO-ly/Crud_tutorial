@@ -1,4 +1,5 @@
 <!-- func def -->
+<!-- Git Rename Test -->
 <?php
 //print_title
     function print_title()
